@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Моя семья - мой космос</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="dark-theme">
+    <!-- ШАПКА -->
+    <header>
+      <div class="container">
+        <nav>
+          <a href="index.html" class="logo">Моя семья - мой космос</a>
+
+          <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <ul class="nav-links">
+            <li><a href="registration.html">Регистрация</a></li>
+            <li><a href="#login">Авторизация</a></li>
+            <li><a href="account.html">Личный кабинет</a></li>
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#competitions">Конкурсы</a></li>
+            <li><a href="#search">Поиск</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+            <li><a href="index-light.html">Светлая тема</a></li>
+          </ul>
+
+          <button class="theme-toggle">☀️ Светлая тема</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ГЛАВНЫЙ БАННЕР -->
+    <section class="hero">
+      <div class="container">
+        <h1>Год семьи в космическом стиле!</h1>
+        <p>8 июля 2024 года | Калуга</p>
+        <a href="registration.html" class="btn">Зарегистрироваться</a>
+      </div>
+    </section>
+
+    <!-- СЛАЙДЕР ПОПУЛЯРНЫХ КОНКУРСОВ -->
+    <section id="popular">
+      <div class="container">
+        <h2>Популярные конкурсы</h2>
+        <div class="slider">
+          <div class="slides">
+            <div class="slide">
+              <h3>Космическая поделка</h3>
+              <p>Создайте свою космическую поделку из подручных материалов</p>
+              <div class="rating">★★★★★</div>
+              <a href="competition.html" class="btn">Подробнее</a>
+            </div>
+            <div class="slide">
+              <h3>Семейная фотография</h3>
+              <p>Сделайте лучшую семейную фотографию в космическом стиле</p>
+              <div class="rating">★★★★☆</div>
+              <a href="competition.html" class="btn">Подробнее</a>
+            </div>
+            <div class="slide">
+              <h3>Космический костюм</h3>
+              <p>Придумайте и создайте самый оригинальный космический костюм</p>
+              <div class="rating">★★★★★</div>
+              <a href="competition.html" class="btn">Подробнее</a>
+            </div>
+          </div>
+          <div class="slider-controls">
+            <button class="btn" onclick="prevSlide()">←</button>
+            <button class="btn" onclick="nextSlide()">→</button>
+          </div>
+          <div class="slider-dots">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+            <span class="dot" onclick="goToSlide(2)"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ФОРМА АВТОРИЗАЦИИ -->
+    <section id="login">
+      <div class="container">
+        <h2>Авторизация</h2>
+        <form class="auth-form">
+          <div class="form-group">
+            <input
+              type="email"
+              placeholder="Email"
+              required
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              placeholder="Пароль"
+              required
+              class="form-control"
+            />
+          </div>
+          <button type="submit" class="btn">Войти</button>
+          <a href="#" style="display: block; margin-top: 1rem"
+            >Забыли пароль?</a
+          >
+        </form>
+      </div>
+    </section>
+
+    <!-- О НАС -->
+    <section id="about">
+      <div class="container">
+        <h2>О нас</h2>
+        <div
+          style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap"
+        >
+          <div style="flex: 1; min-width: 300px">
+            <p>
+              Калуга - колыбель космонавтики, и мы решили объединить космическую
+              тему с семейными ценностями. Наш праздник "Моя семья - мой космос"
+              - это уникальное мероприятие, где каждая семья может почувствовать
+              себя космическим экипажем.
+            </p>
+            <p>
+              Мы верим, что семья - это наша личная вселенная, и хотим помочь
+              вам сделать её еще ярче и интереснее.
+            </p>
+          </div>
+          <div style="flex: 1; min-width: 300px">
+            <div
+              style="
+                width: 100%;
+                height: 300px;
+                background-color: #415a77;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #90e0ef;
+                font-size: 1.5rem;
+              "
+            >
+              Изображение мероприятия
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ВИДЕО ПРИВЕТСТВИЕ -->
+    <section id="video">
+      <div class="container">
+        <h2>Приветствие от организаторов</h2>
+        <div
+          style="
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #1b263b;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+          "
+        >
+          <div
+            style="
+              width: 100%;
+              height: 400px;
+              background-color: #415a77;
+              border-radius: 8px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: white;
+              margin-bottom: 1rem;
+            "
+          >
+            Видео: Приветствие от организаторов
+          </div>
+          <p>Посмотрите приветственное видео от организаторов мероприятия</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- КОНКУРСЫ -->
+    <section id="competitions">
+      <div class="container">
+        <h2>Конкурсы</h2>
+        <div class="competitions-grid">
+          <div class="competition-card">
+            <div
+              style="
+                width: 100%;
+                height: 200px;
+                background-color: #415a77;
+                border-radius: 8px;
+                margin-bottom: 1rem;
+              "
+            ></div>
+            <h3>Космическая поделка</h3>
+            <p>Создайте космическую поделку</p>
+            <p>Участников: 45</p>
+            <div class="rating">★★★★★</div>
+            <a href="registration.html" class="btn">Записаться</a>
+          </div>
+          <div class="competition-card">
+            <div
+              style="
+                width: 100%;
+                height: 200px;
+                background-color: #415a77;
+                border-radius: 8px;
+                margin-bottom: 1rem;
+              "
+            ></div>
+            <h3>Семейная фотография</h3>
+            <p>Лучшая семейная фотосессия</p>
+            <p>Участников: 32</p>
+            <div class="rating">★★★★☆</div>
+            <a href="registration.html" class="btn">Записаться</a>
+          </div>
+          <div class="competition-card">
+            <div
+              style="
+                width: 100%;
+                height: 200px;
+                background-color: #415a77;
+                border-radius: 8px;
+                margin-bottom: 1rem;
+              "
+            ></div>
+            <h3>Космический костюм</h3>
+            <p>Оригинальный космический костюм</p>
+            <p>Участников: 28</p>
+            <div class="rating">★★★★★</div>
+            <a href="registration.html" class="btn">Записаться</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПОИСК -->
+    <section id="search">
+      <div class="container">
+        <h2>Поиск конкурсов</h2>
+        <div style="max-width: 600px; margin: 0 auto">
+          <input
+            type="text"
+            placeholder="Название или описание конкурса..."
+            class="form-control"
+            style="margin-bottom: 1rem"
+          />
+          <button class="btn" style="width: 100%">Найти</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ОТЗЫВЫ -->
+    <section id="feedback">
+      <div class="container">
+        <h2>Отзывы</h2>
+        <div class="feedback-slider">
+          <div class="feedback-card">
+            <h4>Иван Петров</h4>
+            <p>"Отличное мероприятие! Дети в восторге!"</p>
+            <small>12.05.2023</small>
+          </div>
+          <div class="feedback-card">
+            <h4>Мария Сидорова</h4>
+            <p>"Организация на высшем уровне. Обязательно придём снова!"</p>
+            <small>15.06.2023</small>
+          </div>
+          <div class="feedback-card">
+            <h4>Алексей Иванов</h4>
+            <p>"Спасибо за прекрасный семейный праздник!"</p>
+            <small>20.07.2023</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПОДПИСКА -->
+    <section id="subscribe">
+      <div class="container">
+        <div class="subscription-form">
+          <h2>Подписка на новости</h2>
+          <form>
+            <input type="email" placeholder="Ваш email" required />
+            <div class="checkbox-group">
+              <input type="checkbox" id="agree" required />
+              <label for="agree"
+                >Согласен на обработку персональных данных</label
+              >
+            </div>
+            <button type="submit" class="btn">Подписаться</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПОДВАЛ -->
+    <footer id="contacts">
+      <div class="container">
+        <div class="footer-content">
+          <div>
+            <h3>Контакты</h3>
+            <p>Телефон: <a href="tel:+74842234567">+7 (4842) 23-45-67</a></p>
+            <p>Email: <a href="mailto:family@cosmos.ru">family@cosmos.ru</a></p>
+          </div>
+          <div class="footer-links">
+            <h3>Навигация</h3>
+            <a href="index.html">Главная</a>
+            <a href="index-light.html">Главная-светлая</a>
+            <a href="registration.html">Регистрация</a>
+            <a href="competition.html">Конкурс</a>
+            <a href="account.html">Личный кабинет</a>
+            <a href="404.html">Страница не найдена</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
