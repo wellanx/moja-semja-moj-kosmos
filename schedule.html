@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Расписание - Моя семья - мой космос</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .time-slots {
+        display: grid;
+        grid-template-columns: repeat(13, 1fr);
+        gap: 5px;
+        margin-bottom: 20px;
+        overflow-x: auto;
+      }
+
+      .time-slot {
+        text-align: center;
+        padding: 10px;
+        background-color: #1b263b;
+        border-radius: 5px;
+      }
+
+      .light-theme .time-slot {
+        background-color: #4682b4;
+        color: white;
+      }
+
+      .competition-row {
+        display: grid;
+        grid-template-columns: 200px repeat(13, 1fr);
+        gap: 5px;
+        margin-bottom: 10px;
+        align-items: center;
+      }
+
+      @media (max-width: 796px) {
+        .competition-row {
+          grid-template-columns: 1fr;
+          background-color: #1b263b;
+          padding: 1rem;
+          border-radius: 10px;
+          margin-bottom: 1rem;
+        }
+
+        .light-theme .competition-row {
+          background-color: #f0f8ff;
+          border: 1px solid #4682b4;
+        }
+
+        .competition-row > div:first-child {
+          font-weight: bold;
+          margin-bottom: 1rem;
+        }
+
+        .time-slots {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body class="dark-theme">
+    <header>
+      <div class="container">
+        <nav>
+          <a href="index.html" class="logo">Моя семья - мой космос</a>
+          <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="nav-links">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="registration.html">Регистрация</a></li>
+            <li><a href="account.html">Личный кабинет</a></li>
+            <li><a href="competition.html">Конкурсы</a></li>
+          </ul>
+          <button class="theme-toggle" onclick="toggleTheme()">
+            ☀️ Светлая тема
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container" style="padding: 2rem 0">
+      <h1 style="text-align: center; margin-bottom: 2rem">
+        Расписание конкурсов
+      </h1>
+
+      <div class="table-container">
+        <!-- Временные слоты -->
+        <div class="time-slots">
+          <div class="time-slot">Время</div>
+          <div class="time-slot">9:00-10:00</div>
+          <div class="time-slot">10:00-11:00</div>
+          <div class="time-slot">11:00-12:00</div>
+          <div class="time-slot">12:00-13:00</div>
+          <div class="time-slot">13:00-14:00</div>
+          <div class="time-slot">14:00-15:00</div>
+          <div class="time-slot">15:00-16:00</div>
+          <div class="time-slot">16:00-17:00</div>
+          <div class="time-slot">17:00-18:00</div>
+          <div class="time-slot">18:00-19:00</div>
+          <div class="time-slot">19:00-20:00</div>
+          <div class="time-slot">20:00-21:00</div>
+        </div>
+
+        <!-- Конкурсы -->
+        <div id="scheduleTable">
+          <!-- Космическая поделка -->
+          <div class="competition-row">
+            <div>Космическая поделка</div>
+            <div class="available">5</div>
+            <div class="available">3</div>
+            <div class="unavailable">0</div>
+            <div class="available">8</div>
+            <div class="available">4</div>
+            <div class="available">6</div>
+            <div class="unavailable">0</div>
+            <div class="available">2</div>
+            <div class="available">7</div>
+            <div class="available">5</div>
+            <div class="unavailable">0</div>
+            <div class="available">3</div>
+            <div class="available">9</div>
+          </div>
+
+          <!-- Семейная фотография -->
+          <div class="competition-row">
+            <div>Семейная фотография</div>
+            <div class="unavailable">0</div>
+            <div class="available">2</div>
+            <div class="available">4</div>
+            <div class="available">6</div>
+            <div class="unavailable">0</div>
+            <div class="available">3</div>
+            <div class="available">5</div>
+            <div class="available">7</div>
+            <div class="unavailable">0</div>
+            <div class="available">8</div>
+            <div class="available">2</div>
+            <div class="available">4</div>
+            <div class="unavailable">0</div>
+          </div>
+
+          <!-- Космический костюм -->
+          <div class="competition-row">
+            <div>Космический костюм</div>
+            <div class="available">10</div>
+            <div class="available">8</div>
+            <div class="available">6</div>
+            <div class="unavailable">0</div>
+            <div class="available">4</div>
+            <div class="available">2</div>
+            <div class="available">9</div>
+            <div class="unavailable">0</div>
+            <div class="available">5</div>
+            <div class="available">3</div>
+            <div class="available">7</div>
+            <div class="unavailable">0</div>
+            <div class="available">1</div>
+          </div>
+
+          <!-- Космическая викторина -->
+          <div class="competition-row">
+            <div>Космическая викторина</div>
+            <div class="available">3</div>
+            <div class="unavailable">0</div>
+            <div class="available">5</div>
+            <div class="available">7</div>
+            <div class="available">9</div>
+            <div class="unavailable">0</div>
+            <div class="available">2</div>
+            <div class="available">4</div>
+            <div class="available">6</div>
+            <div class="unavailable">0</div>
+            <div class="available">8</div>
+            <div class="available">10</div>
+            <div class="unavailable">0</div>
+          </div>
+
+          <!-- Рисунок на асфальте -->
+          <div class="competition-row">
+            <div>Рисунок на асфальте</div>
+            <div class="unavailable">0</div>
+            <div class="available">12</div>
+            <div class="available">10</div>
+            <div class="available">8</div>
+            <div class="unavailable">0</div>
+            <div class="available">6</div>
+            <div class="available">4</div>
+            <div class="available">2</div>
+            <div class="unavailable">0</div>
+            <div class="available">14</div>
+            <div class="available">12</div>
+            <div class="available">10</div>
+            <div class="unavailable">0</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem; text-align: center">
+        <div
+          style="
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-right: 2rem;
+          "
+        >
+          <div class="available" style="width: 20px; height: 20px"></div>
+          <span>Есть свободные места</span>
+        </div>
+        <div style="display: inline-flex; align-items: center; gap: 1rem">
+          <div class="unavailable" style="width: 20px; height: 20px"></div>
+          <span>Нет свободных мест</span>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div>
+            <h3>Контакты</h3>
+            <p>Телефон: <a href="tel:+74842234567">+7 (4842) 23-45-67</a></p>
+            <p>Email: <a href="mailto:family@cosmos.ru">family@cosmos.ru</a></p>
+          </div>
+          <div class="footer-links">
+            <h3>Навигация</h3>
+            <a href="index.html">Главная</a>
+            <a href="index-light.html">Главная-светлая</a>
+            <a href="registration.html">Регистрация</a>
+            <a href="competition.html">Конкурс</a>
+            <a href="account.html">Личный кабинет</a>
+            <a href="404.html">Страница не найдена</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
