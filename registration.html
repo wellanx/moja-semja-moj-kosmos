@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Регистрация - Моя семья - мой космос</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .form-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .photo-upload {
+        border: 2px dashed #90e0ef;
+        border-radius: 10px;
+        padding: 2rem;
+        text-align: center;
+        margin: 1rem 0;
+        cursor: pointer;
+      }
+
+      .photo-upload:hover {
+        background-color: rgba(144, 224, 239, 0.1);
+      }
+
+      .family-member {
+        background-color: #1b263b;
+        padding: 1.5rem;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+      }
+
+      .light-theme .family-member {
+        background-color: #f0f8ff;
+        border: 1px solid #4682b4;
+      }
+
+      .btn-danger {
+        background-color: #e63946;
+        color: white;
+      }
+
+      .btn-success {
+        background-color: #2a9d8f;
+        color: white;
+      }
+
+      input.error,
+      select.error {
+        border-color: #e63946 !important;
+      }
+    </style>
+  </head>
+  <body class="dark-theme">
+    <header>
+      <div class="container">
+        <nav>
+          <a href="index.html" class="logo">Моя семья - мой космос</a>
+          <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="nav-links">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="#login">Авторизация</a></li>
+            <li><a href="account.html">Личный кабинет</a></li>
+          </ul>
+          <button class="theme-toggle" onclick="toggle"></button>
+          <button class="theme-toggle" onclick="toggleTheme()">
+            ☀️ Светлая тема
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container" style="padding: 2rem 0">
+      <h1>Регистрация на мероприятие</h1>
+
+      <form id="registrationForm" style="max-width: 800px; margin: 0 auto">
+        <!-- Основные данные -->
+        <h2>Основные данные</h2>
+
+        <div class="form-group">
+          <label>Email *</label>
+          <input type="email" class="form-control" required />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Имя *</label>
+            <input type="text" class="form-control" required />
+          </div>
+          <div class="form-group">
+            <label>Фамилия *</label>
+            <input type="text" class="form-control" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Возраст *</label>
+            <input
+              type="number"
+              class="form-control"
+              min="18"
+              max="120"
+              required
+            />
+            <small>Или выберите:</small>
+            <select class="form-control" style="margin-top: 0.5rem">
+              <option value="">Выберите возраст</option>
+              <option value="18-25">18-25</option>
+              <option value="26-35">26-35</option>
+              <option value="36-50">36-50</option>
+              <option value="51+">51+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Пол *</label>
+            <div style="display: flex; gap: 1rem; margin-top: 0.5rem">
+              <label>
+                <input type="radio" name="gender" value="male" required />
+                Мужской
+              </label>
+              <label>
+                <input type="radio" name="gender" value="female" required />
+                Женский
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Пароль *</label>
+            <input
+              type="password"
+              id="password"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label>Повторите пароль *</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              class="form-control"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Фотография -->
+        <div class="form-group">
+          <label>Семейная фотография</label>
+          <div
+            class="photo-upload"
+            onclick="document.getElementById('photoInput').click()"
+          >
+            <p>Нажмите для загрузки фотографии</p>
+            <small>Максимальный размер: 5MB</small>
+          </div>
+          <input
+            type="file"
+            id="photoInput"
+            accept="image/*"
+            style="display: none"
+          />
+        </div>
+
+        <!-- Члены семьи -->
+        <h2>Члены семьи</h2>
+        <div id="familyMembers">
+          <!-- Будет добавляться динамически -->
+        </div>
+
+        <button
+          type="button"
+          class="btn btn-success"
+          onclick="addFamilyMember()"
+          style="margin-bottom: 2rem"
+        >
+          + Добавить члена семьи
+        </button>
+
+        <!-- Согласие -->
+        <div class="form-group">
+          <label style="display: flex; align-items: center; gap: 10px">
+            <input type="checkbox" required />
+            <span>Я согласен на обработку персональных данных *</span>
+          </label>
+        </div>
+
+        <!-- Кнопка отправки -->
+        <button
+          type="submit"
+          class="btn"
+          style="width: 100%; padding: 15px; font-size: 1.2rem"
+        >
+          Зарегистрироваться
+        </button>
+
+        <!-- Сообщения -->
+        <div id="formMessages" style="margin-top: 1rem; display: none">
+          <div
+            id="successMessage"
+            style="
+              background-color: #2a9d8f;
+              color: white;
+              padding: 1rem;
+              border-radius: 5px;
+              display: none;
+            "
+          >
+            ✓ Регистрация успешно завершена!
+          </div>
+          <div
+            id="errorMessage"
+            style="
+              background-color: #e63946;
+              color: white;
+              padding: 1rem;
+              border-radius: 5px;
+              display: none;
+            "
+          >
+            ✗ Пожалуйста, заполните все поля корректно
+          </div>
+        </div>
+      </form>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div>
+            <h3>Контакты</h3>
+            <p>Телефон: <a href="tel:+74842234567">+7 (4842) 23-45-67</a></p>
+            <p>Email: <a href="mailto:family@cosmos.ru">family@cosmos.ru</a></p>
+          </div>
+          <div class="footer-links">
+            <h3>Навигация</h3>
+            <a href="index.html">Главная</a>
+            <a href="index-light.html">Главная-светлая</a>
+            <a href="registration.html">Регистрация</a>
+            <a href="competition.html">Конкурс</a>
+            <a href="account.html">Личный кабинет</a>
+            <a href="404.html">Страница не найдена</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+      // Показываем сообщения при отправке формы
+      document
+        .getElementById("registrationForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          if (validateForm(this)) {
+            document.getElementById("successMessage").style.display = "block";
+            document.getElementById("errorMessage").style.display = "none";
+          } else {
+            document.getElementById("successMessage").style.display = "none";
+            document.getElementById("errorMessage").style.display = "block";
+          }
+
+          document.getElementById("formMessages").style.display = "block";
+        });
+
+      // Инициализация - добавляем одного члена семьи по умолчанию
+      document.addEventListener("DOMContentLoaded", function () {
+        addFamilyMember();
+      });
+    </script>
+  </body>
+</html>
