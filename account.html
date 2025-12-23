@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Личный кабинет - Моя семья - мой космос</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .user-info {
+        background-color: #1b263b;
+        padding: 2rem;
+        border-radius: 10px;
+        margin-bottom: 2rem;
+      }
+
+      .light-theme .user-info {
+        background-color: #f0f8ff;
+        border: 1px solid #4682b4;
+      }
+
+      .booking-form {
+        background-color: #1b263b;
+        padding: 2rem;
+        border-radius: 10px;
+      }
+
+      .light-theme .booking-form {
+        background-color: #f0f8ff;
+        border: 1px solid #4682b4;
+      }
+
+      .logout-btn {
+        background-color: #e63946;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body class="dark-theme">
+    <header>
+      <div class="container">
+        <nav>
+          <a href="index.html" class="logo">Моя семья - мой космос</a>
+          <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="nav-links">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="schedule.html">Расписание</a></li>
+            <li><a href="competition.html">Конкурсы</a></li>
+            <li><a href="#" class="logout-btn" onclick="logout()">Выйти</a></li>
+          </ul>
+          <button class="theme-toggle" onclick="toggleTheme()">
+            ☀️ Светлая тема
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container" style="padding: 2rem 0">
+      <h1>Личный кабинет</h1>
+
+      <!-- Информация о пользователе -->
+      <div class="user-info">
+        <h2>Привет, Иван Иванов!</h2>
+        <p>Email: ivan@example.com</p>
+        <p>Телефон: +7 900 123-45-67</p>
+        <p>Дата регистрации: 15.05.2024</p>
+      </div>
+
+      <!-- Форма записи на конкурс -->
+      <div class="booking-form">
+        <h2>Запись на конкурс</h2>
+        <form id="bookingForm">
+          <div class="form-group">
+            <label>Конкурс *</label>
+            <select class="form-control" required>
+              <option value="">Выберите конкурс</option>
+              <option value="craft">Космическая поделка</option>
+              <option value="photo">Семейная фотография</option>
+              <option value="costume">Космический костюм</option>
+              <option value="quiz">Космическая викторина</option>
+              <option value="drawing">Рисунок на асфальте</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Дата *</label>
+            <input
+              type="date"
+              class="form-control"
+              value="2024-07-08"
+              readonly
+              required
+            />
+            <small>Мероприятие состоится 8 июля 2024 года</small>
+          </div>
+
+          <div class="form-group">
+            <label>Время *</label>
+            <select class="form-control" required>
+              <option value="">Выберите время</option>
+              <option value="9-10">9:00 - 10:00</option>
+              <option value="10-11">10:00 - 11:00</option>
+              <option value="11-12">11:00 - 12:00</option>
+              <option value="12-13">12:00 - 13:00</option>
+              <option value="13-14">13:00 - 14:00</option>
+              <option value="14-15">14:00 - 15:00</option>
+              <option value="15-16">15:00 - 16:00</option>
+              <option value="16-17">16:00 - 17:00</option>
+              <option value="17-18">17:00 - 18:00</option>
+              <option value="18-19">18:00 - 19:00</option>
+              <option value="19-20">19:00 - 20:00</option>
+              <option value="20-21">20:00 - 21:00</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Количество человек *</label>
+            <input
+              type="number"
+              class="form-control"
+              min="1"
+              max="10"
+              value="1"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn" style="width: 100%">
+            Записаться на конкурс
+          </button>
+
+          <div id="bookingMessage" style="margin-top: 1rem; display: none">
+            <div
+              style="
+                background-color: #2a9d8f;
+                color: white;
+                padding: 1rem;
+                border-radius: 5px;
+              "
+            >
+              ✓ Вы успешно записаны на конкурс!
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Активные записи -->
+      <div style="margin-top: 2rem">
+        <h2>Активные записи</h2>
+        <div
+          style="
+            background-color: #1b263b;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+          "
+        >
+          <p><strong>Космическая поделка</strong></p>
+          <p>Дата: 08.07.2024</p>
+          <p>Время: 14:00 - 15:00</p>
+          <p>Количество человек: 3</p>
+          <button class="logout-btn" style="margin-top: 0.5rem">
+            Отменить запись
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div>
+            <h3>Контакты</h3>
+            <p>Телефон: <a href="tel:+74842234567">+7 (4842) 23-45-67</a></p>
+            <p>Email: <a href="mailto:family@cosmos.ru">family@cosmos.ru</a></p>
+          </div>
+          <div class="footer-links">
+            <h3>Навигация</h3>
+            <a href="index.html">Главная</a>
+            <a href="index-light.html">Главная-светлая</a>
+            <a href="registration.html">Регистрация</a>
+            <a href="competition.html">Конкурс</a>
+            <a href="account.html">Личный кабинет</a>
+            <a href="404.html">Страница не найдена</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+      function logout() {
+        if (confirm("Вы уверены, что хотите выйти?")) {
+          window.location.href = "index.html";
+        }
+      }
+
+      document
+        .getElementById("bookingForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          document.getElementById("bookingMessage").style.display = "block";
+          setTimeout(() => {
+            document.getElementById("bookingMessage").style.display = "none";
+          }, 3000);
+        });
+    </script>
+  </body>
+</html>

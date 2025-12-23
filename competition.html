@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Космическая поделка - Моя семья - мой космос</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .competition-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .competition-stats {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin: 2rem 0;
+        flex-wrap: wrap;
+      }
+
+      .stat-item {
+        text-align: center;
+        background-color: #1b263b;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+      }
+
+      .light-theme .stat-item {
+        background-color: #f0f8ff;
+        border: 1px solid #4682b4;
+      }
+
+      .stat-value {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #90e0ef;
+      }
+
+      .light-theme .stat-value {
+        color: #003366;
+      }
+
+      .competition-image {
+        width: 100%;
+        max-width: 600px;
+        height: 400px;
+        margin: 2rem auto;
+        background-color: #415a77;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+      }
+
+      .print-feedback {
+        display: none;
+        margin-top: 2rem;
+        padding: 1rem;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+      }
+    </style>
+  </head>
+  <body class="dark-theme">
+    <header>
+      <div class="container">
+        <nav>
+          <a href="index.html" class="logo">Моя семья - мой космос</a>
+          <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="nav-links">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="registration.html">Регистрация</a></li>
+            <li><a href="schedule.html">Расписание</a></li>
+            <li><a href="account.html">Личный кабинет</a></li>
+          </ul>
+          <button class="theme-toggle" onclick="toggleTheme()">
+            ☀️ Светлая тема
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container" style="padding: 2rem 0">
+      <div class="competition-header">
+        <h1>Космическая поделка</h1>
+        <p>Создайте свою космическую поделку из подручных материалов</p>
+      </div>
+
+      <div class="competition-image">Изображение конкурса</div>
+
+      <div class="competition-stats">
+        <div class="stat-item">
+          <div class="stat-value">4.8</div>
+          <div>Рейтинг</div>
+          <div class="rating">★★★★★</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">45</div>
+          <div>Участников</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">15</div>
+          <div>Свободных мест</div>
+        </div>
+      </div>
+
+      <div style="max-width: 800px; margin: 0 auto">
+        <h2>Описание конкурса</h2>
+        <p>
+          Приглашаем все семьи принять участие в конкурсе космических поделок!
+          Используйте свою фантазию и создайте уникальную поделку на космическую
+          тему из любых подручных материалов.
+        </p>
+
+        <h3>Правила конкурса:</h3>
+        <ul style="margin: 1rem 0 1rem 2rem">
+          <li>Поделка должна быть на космическую тему</li>
+          <li>Можно использовать любые материалы</li>
+          <li>Размер поделки не должен превышать 50x50x50 см</li>
+          <li>Работа должна быть выполнена семьей совместно</li>
+          <li>Каждая семья может представить только одну работу</li>
+        </ul>
+
+        <h3>Критерии оценки:</h3>
+        <ul style="margin: 1rem 0 1rem 2rem">
+          <li>Оригинальность идеи - 30%</li>
+          <li>Качество исполнения - 30%</li>
+          <li>Соответствие теме - 20%</li>
+          <li>Сложность работы - 20%</li>
+        </ul>
+
+        <h3>Призы:</h3>
+        <p>
+          Победители получат ценные призы и дипломы. Все участники получат
+          памятные сувениры.
+        </p>
+
+        <div style="text-align: center; margin: 2rem 0">
+          <a
+            href="registration.html"
+            class="btn"
+            style="font-size: 1.2rem; padding: 15px 30px"
+          >
+            Записаться на конкурс
+          </a>
+        </div>
+      </div>
+
+      <!-- Блок для печати -->
+      <div class="print-feedback">
+        <h3>Отзыв о конкурсе</h3>
+        <p>
+          "Отличный конкурс! Наша семья с удовольствием создавала космическую
+          ракету из картона. Дети были в восторге!" - Семья Ивановых
+        </p>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div>
+            <h3>Контакты</h3>
+            <p>Телефон: <a href="tel:+74842234567">+7 (4842) 23-45-67</a></p>
+            <p>Email: <a href="mailto:family@cosmos.ru">family@cosmos.ru</a></p>
+          </div>
+          <div class="footer-links">
+            <h3>Навигация</h3>
+            <a href="index.html">Главная</a>
+            <a href="index-light.html">Главная-светлая</a>
+            <a href="registration.html">Регистрация</a>
+            <a href="competition.html">Конкурс</a>
+            <a href="account.html">Личный кабинет</a>
+            <a href="404.html">Страница не найдена</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
