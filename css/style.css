@@ -1,0 +1,542 @@
+/* БАЗОВЫЕ СТИЛИ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* ТЁМНАЯ ТЕМА (по умолчанию) */
+body.dark-theme {
+  background-color: #0d1b2a;
+  color: #ffffff;
+}
+
+/* СВЕТЛАЯ ТЕМА */
+body.light-theme {
+  background-color: #f0f8ff;
+  color: #1a1a2e;
+}
+
+/* ОБЩИЕ СТИЛИ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ШАПКА */
+header {
+  background-color: #1b263b;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.light-theme header {
+  background-color: #4682b4;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #90e0ef;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.light-theme .logo {
+  color: #003366;
+}
+
+.logo::before {
+  content: "🚀";
+  font-size: 2rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #e0e1dd;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #90e0ef;
+}
+
+.light-theme .nav-links a {
+  color: #ffffff;
+}
+
+.light-theme .nav-links a:hover {
+  color: #003366;
+}
+
+.theme-toggle {
+  background: none;
+  border: 2px solid #90e0ef;
+  color: #90e0ef;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.light-theme .theme-toggle {
+  border-color: #003366;
+  color: #003366;
+}
+
+/* ГЛАВНОЕ МЕНЮ */
+.hero {
+  padding: 3rem 0;
+  text-align: center;
+  background: linear-gradient(135deg, #1b263b 0%, #415a77 100%);
+}
+
+.light-theme .hero {
+  background: linear-gradient(135deg, #87ceeb 0%, #4682b4 100%);
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #90e0ef;
+}
+
+.light-theme .hero h1 {
+  color: #003366;
+}
+
+/* СЕКЦИИ */
+section {
+  padding: 2rem 0;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #90e0ef;
+  text-align: center;
+}
+
+.light-theme h2 {
+  color: #003366;
+}
+
+/* КАРТОЧКИ КОНКУРСОВ */
+.competitions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.competition-card {
+  background-color: #1b263b;
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.light-theme .competition-card {
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.competition-card:hover {
+  transform: translateY(-5px);
+}
+
+.competition-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* РЕЙТИНГ */
+.rating {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin: 10px 0;
+}
+
+.star {
+  color: #ffd700;
+  font-size: 1.2rem;
+}
+
+/* КНОПКИ */
+.btn {
+  display: inline-block;
+  background-color: #90e0ef;
+  color: #1b263b;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: #48cae4;
+}
+
+.light-theme .btn {
+  background-color: #003366;
+  color: white;
+}
+
+.light-theme .btn:hover {
+  background-color: #002244;
+}
+
+/* ФОРМЫ */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #415a77;
+  border-radius: 5px;
+  background-color: #0d1b2a;
+  color: white;
+  font-size: 1rem;
+}
+
+.light-theme .form-control {
+  background-color: white;
+  color: #1a1a2e;
+  border-color: #4682b4;
+}
+
+/* ТАБЛИЦА */
+.table-container {
+  overflow-x: auto;
+  margin: 2rem 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #415a77;
+}
+
+th {
+  background-color: #1b263b;
+  color: #90e0ef;
+}
+
+.light-theme th {
+  background-color: #4682b4;
+  color: white;
+}
+
+.available {
+  background-color: #2a9d8f;
+  color: white;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.unavailable {
+  background-color: #e63946;
+  color: white;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+/* СЛАЙДЕР */
+.slider {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  min-width: 100%;
+  background-color: #1b263b;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.slider-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #415a77;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #90e0ef;
+}
+
+/* ФОРМА ПОДПИСКИ */
+.subscription-form {
+  background-color: #1b263b;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.light-theme .subscription-form {
+  background-color: #f0f8ff;
+  border: 2px solid #4682b4;
+}
+
+.subscription-form input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 1rem;
+  border: 2px solid #90e0ef;
+  border-radius: 5px;
+  background-color: #0d1b2a;
+  color: white;
+}
+
+.light-theme .subscription-form input[type="email"] {
+  background-color: white;
+  color: #1a1a2e;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+/* ОТЗЫВЫ */
+.feedback-slider {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  padding: 1rem 0;
+  scrollbar-width: thin;
+}
+
+.feedback-card {
+  min-width: 300px;
+  background-color: #1b263b;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.light-theme .feedback-card {
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ПОДВАЛ */
+footer {
+  background-color: #1b263b;
+  color: #e0e1dd;
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+.light-theme footer {
+  background-color: #003366;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  color: #e0e1dd;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #90e0ef;
+}
+
+/* СТРАНИЦА 404 */
+.error-page {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.error-page h1 {
+  font-size: 4rem;
+  color: #90e0ef;
+  margin-bottom: 1rem;
+}
+
+/* МОБИЛЬНАЯ ВЕРСИЯ */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+}
+
+@media (max-width: 796px) {
+  /* Изменение 1: Гамбургер-меню */
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #1b263b;
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* Изменение 2: 3 колонки -> 1 колонка */
+  .competitions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Изменение 3: Скрываем некоторые элементы слайдера */
+  .slider-controls .btn:nth-child(2),
+  .slider-controls .btn:nth-child(3) {
+    display: none;
+  }
+
+  /* Изменение 4: Футер в колонку */
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Дополнительные мобильные стили */
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  section {
+    padding: 1rem 0;
+  }
+}
+
+/* СТИЛИ ДЛЯ ПЕЧАТИ */
+@media print {
+  header,
+  footer,
+  .btn,
+  .subscription-form {
+    display: none !important;
+  }
+
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+
+  .competition-card img {
+    filter: grayscale(100%);
+  }
+
+  .print-feedback {
+    display: block !important;
+    margin-top: 2rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+  }
+}
+
+.print-feedback {
+  display: none;
+}
